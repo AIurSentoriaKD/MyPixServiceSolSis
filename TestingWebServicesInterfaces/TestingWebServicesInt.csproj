@@ -1,0 +1,539 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22DCAB9B-8E61-4467-B678-19D32F5C10EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestingWebServices</RootNamespace>
+    <AssemblyName>TestingWebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44358</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceAuthor\wsAuthor.disco" />
+    <None Include="Connected Services\ServiceReferenceAuthor\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceAuthor\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceAuthor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Pages\frmLogin.aspx" />
+    <Content Include="Pages\frmRegister.aspx" />
+    <Content Include="Pages\Test.aspx" />
+    <Content Include="public\assets\css\animate.css" />
+    <Content Include="public\assets\css\bootstrap.css" />
+    <Content Include="public\assets\css\custom.css" />
+    <Content Include="public\assets\css\font-awesome.css" />
+    <Content Include="public\assets\css\nexus.css" />
+    <Content Include="public\assets\css\responsive.css" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\assets\img\artworks\19\large\102049530_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102049544_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102049590_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102049590_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102049768_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102049918_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051323_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p2_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p3_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p4_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102051931_p5_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102052962_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102053000_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102053000_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102054641_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102054641_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102054641_p2_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102054641_p3_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102055377_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102055377_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102055925_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102056500_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102056500_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102056500_p2_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062040_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062040_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062040_p2_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062040_p3_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062800_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062906_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062906_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062906_p2_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062906_p3_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062906_p4_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102062995_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102063008_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102064678_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102065825_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102066003_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102066073_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102066073_p1_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102067062_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102068022_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\large\102073420_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102049530_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102049544_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102049590_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102049768_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102049918_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102051323_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102051931_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102052962_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102053000_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102054641_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102055377_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102055925_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102056500_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102062040_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102062800_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102062906_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102062995_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102063008_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102064678_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102065825_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102066003_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102066073_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102067062_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102068022_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\19\square\102073420_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102074065_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102074483_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102076017_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102077224_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102083085_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\large\102093958_p0_master1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102074065_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102074483_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102076017_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102077224_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102083085_p0_square1200.jpg" />
+    <Content Include="public\assets\img\artworks\20\square\102093958_p0_square1200.jpg" />
+    <Content Include="public\assets\img\blog\image1.jpg" />
+    <Content Include="public\assets\img\blog\image2.jpg" />
+    <Content Include="public\assets\img\blog\image3.jpg" />
+    <Content Include="public\assets\img\blog\image4.jpg" />
+    <Content Include="public\assets\img\blog\thumbs\thumb1.jpg" />
+    <Content Include="public\assets\img\blog\thumbs\thumb2.jpg" />
+    <Content Include="public\assets\img\blog\thumbs\thumb3.jpg" />
+    <Content Include="public\assets\img\blog\thumbs\thumb4.jpg" />
+    <Content Include="public\assets\img\closelabel.gif" />
+    <Content Include="public\assets\img\fillers\aboutme.jpg" />
+    <Content Include="public\assets\img\fillers\filler1.jpg" />
+    <Content Include="public\assets\img\fillers\filler2.jpg" />
+    <Content Include="public\assets\img\fillers\filler3.jpg" />
+    <Content Include="public\assets\img\fillers\filler4.jpg" />
+    <Content Include="public\assets\img\frontpage\image1.jpg" />
+    <Content Include="public\assets\img\frontpage\image2.jpg" />
+    <Content Include="public\assets\img\frontpage\image3.jpg" />
+    <Content Include="public\assets\img\frontpage\image4.jpg" />
+    <Content Include="public\assets\img\frontpage\image5.jpg" />
+    <Content Include="public\assets\img\frontpage\image6.jpg" />
+    <Content Include="public\assets\img\frontpage\image7.jpg" />
+    <Content Include="public\assets\img\frontpage\image8.jpg" />
+    <Content Include="public\assets\img\frontpage\image9.jpg" />
+    <Content Include="public\assets\img\hr.png" />
+    <Content Include="public\assets\img\large1.png" />
+    <Content Include="public\assets\img\link.png" />
+    <Content Include="public\assets\img\loading.gif" />
+    <Content Include="public\assets\img\logo.png" />
+    <Content Include="public\assets\img\menu_arrow.png" />
+    <Content Include="public\assets\img\mpx_logo2.png" />
+    <Content Include="public\assets\img\nextlabel.gif" />
+    <Content Include="public\assets\img\portfolio\image1.jpg" />
+    <Content Include="public\assets\img\portfolio\image10.jpg" />
+    <Content Include="public\assets\img\portfolio\image11.jpg" />
+    <Content Include="public\assets\img\portfolio\image12.jpg" />
+    <Content Include="public\assets\img\portfolio\image2.jpg" />
+    <Content Include="public\assets\img\portfolio\image3.jpg" />
+    <Content Include="public\assets\img\portfolio\image4.jpg" />
+    <Content Include="public\assets\img\portfolio\image5.jpg" />
+    <Content Include="public\assets\img\portfolio\image6.jpg" />
+    <Content Include="public\assets\img\portfolio\image7.jpg" />
+    <Content Include="public\assets\img\portfolio\image8.jpg" />
+    <Content Include="public\assets\img\portfolio\image9.jpg" />
+    <Content Include="public\assets\img\prevlabel.gif" />
+    <Content Include="public\assets\img\profiles\37.jpg" />
+    <Content Include="public\assets\img\profiles\53.jpg" />
+    <Content Include="public\assets\img\profiles\78.jpg" />
+    <Content Include="public\assets\img\profiles\84.jpg" />
+    <Content Include="public\assets\img\profiles\87.jpg" />
+    <Content Include="public\assets\img\profiles\99.jpg" />
+    <Content Include="public\assets\img\sample_bg.jpg" />
+    <Content Include="public\assets\img\slideshow\slide1.jpg" />
+    <Content Include="public\assets\img\slideshow\slide2.jpg" />
+    <Content Include="public\assets\img\slideshow\slide3.jpg" />
+    <Content Include="public\assets\img\slideshow\slide4.jpg" />
+    <Content Include="public\assets\img\social_icons\aim.png" />
+    <Content Include="public\assets\img\social_icons\apple.png" />
+    <Content Include="public\assets\img\social_icons\behance.png" />
+    <Content Include="public\assets\img\social_icons\blogger.png" />
+    <Content Include="public\assets\img\social_icons\cargo.png" />
+    <Content Include="public\assets\img\social_icons\delicious.png" />
+    <Content Include="public\assets\img\social_icons\deviantart.png" />
+    <Content Include="public\assets\img\social_icons\digg.png" />
+    <Content Include="public\assets\img\social_icons\dopplr.png" />
+    <Content Include="public\assets\img\social_icons\dribbble.png" />
+    <Content Include="public\assets\img\social_icons\email.png" />
+    <Content Include="public\assets\img\social_icons\ember.png" />
+    <Content Include="public\assets\img\social_icons\evernote.png" />
+    <Content Include="public\assets\img\social_icons\facebook.png" />
+    <Content Include="public\assets\img\social_icons\flickr.png" />
+    <Content Include="public\assets\img\social_icons\forrst.png" />
+    <Content Include="public\assets\img\social_icons\github.png" />
+    <Content Include="public\assets\img\social_icons\google.png" />
+    <Content Include="public\assets\img\social_icons\googleplus.png" />
+    <Content Include="public\assets\img\social_icons\gowalla.png" />
+    <Content Include="public\assets\img\social_icons\grooveshark.png" />
+    <Content Include="public\assets\img\social_icons\html5.png" />
+    <Content Include="public\assets\img\social_icons\icloud.png" />
+    <Content Include="public\assets\img\social_icons\lastfm.png" />
+    <Content Include="public\assets\img\social_icons\linkedin.png" />
+    <Content Include="public\assets\img\social_icons\metacafe.png" />
+    <Content Include="public\assets\img\social_icons\mixx.png" />
+    <Content Include="public\assets\img\social_icons\myspace.png" />
+    <Content Include="public\assets\img\social_icons\netvibes.png" />
+    <Content Include="public\assets\img\social_icons\newsvine.png" />
+    <Content Include="public\assets\img\social_icons\orkut.png" />
+    <Content Include="public\assets\img\social_icons\paypal.png" />
+    <Content Include="public\assets\img\social_icons\picasa.png" />
+    <Content Include="public\assets\img\social_icons\pinterest.png" />
+    <Content Include="public\assets\img\social_icons\plurk.png" />
+    <Content Include="public\assets\img\social_icons\posterous.png" />
+    <Content Include="public\assets\img\social_icons\reddit.png" />
+    <Content Include="public\assets\img\social_icons\rss.png" />
+    <Content Include="public\assets\img\social_icons\skype.png" />
+    <Content Include="public\assets\img\social_icons\stumbleupon.png" />
+    <Content Include="public\assets\img\social_icons\technorati.png" />
+    <Content Include="public\assets\img\social_icons\tumblr.png" />
+    <Content Include="public\assets\img\social_icons\twitter.png" />
+    <Content Include="public\assets\img\social_icons\vimeo.png" />
+    <Content Include="public\assets\img\social_icons\wordpress.png" />
+    <Content Include="public\assets\img\social_icons\yahoo.png" />
+    <Content Include="public\assets\img\social_icons\yelp.png" />
+    <Content Include="public\assets\img\social_icons\youtube.png" />
+    <Content Include="public\assets\img\social_icons\zerply.png" />
+    <Content Include="public\assets\img\social_icons\zootool.png" />
+    <Content Include="public\assets\img\theteam\image1.jpg" />
+    <Content Include="public\assets\img\theteam\image2.jpg" />
+    <Content Include="public\assets\img\theteam\image3.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image01.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image02.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image03.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image04.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image05.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image06.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image07.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image08.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\image09.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image01.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image02.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image03.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image04.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image05.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image06.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image07.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image08.jpg" />
+    <Content Include="public\assets\img\thumbsgallery\thumbs\image09.jpg" />
+    <Content Include="public\assets\js\bootstrap.min.js" />
+    <Content Include="public\assets\js\jquery.isotope.js" />
+    <Content Include="public\assets\js\jquery.min.js" />
+    <Content Include="public\assets\js\jquery.slicknav.js" />
+    <Content Include="public\assets\js\jquery.sticky.js" />
+    <Content Include="public\assets\js\jquery.visible.js" />
+    <Content Include="public\assets\js\modernizr.custom.js" />
+    <Content Include="public\assets\js\scripts.js" />
+    <Content Include="public\assets\js\slimbox2.js" />
+    <Content Include="public\assets\less\bootstrap\bootstrap.css" />
+    <Content Include="public\Content\bootstrap-theme.css" />
+    <Content Include="public\Content\bootstrap-theme.min.css" />
+    <Content Include="public\Content\bootstrap.css" />
+    <Content Include="public\Content\bootstrap.min.css" />
+    <Content Include="public\Content\Site.css" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\JavaScript\JavaScript.js" />
+    <Content Include="public\Scripts\bootstrap.js" />
+    <Content Include="public\Scripts\bootstrap.min.js" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\Content\bootstrap-theme.css.map" />
+    <Content Include="public\Content\bootstrap-theme.min.css.map" />
+    <Content Include="public\Content\bootstrap.css.map" />
+    <Content Include="public\Content\bootstrap.min.css.map" />
+    <None Include="public\Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="public\Scripts\jquery-3.4.1.js" />
+    <Content Include="public\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="public\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="public\Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="public\Scripts\modernizr-2.8.3.js" />
+    <Content Include="public\Scripts\WebForms\DetailsView.js" />
+    <Content Include="public\Scripts\WebForms\Focus.js" />
+    <Content Include="public\Scripts\WebForms\GridView.js" />
+    <Content Include="public\Scripts\WebForms\Menu.js" />
+    <Content Include="public\Scripts\WebForms\MenuStandards.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="public\Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="public\Scripts\WebForms\SmartNav.js" />
+    <Content Include="public\Scripts\WebForms\TreeView.js" />
+    <Content Include="public\Scripts\WebForms\WebForms.js" />
+    <Content Include="public\Scripts\WebForms\WebParts.js" />
+    <Content Include="public\Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\ServiceReferenceAuthor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="MP.Master.cs">
+      <DependentUpon>MP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MP.Master.designer.cs">
+      <DependentUpon>MP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MP.Master" />
+    <None Include="Connected Services\ServiceReferenceAuthor\wsAuthor.wsdl" />
+    <None Include="packages.config" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\assets\fonts\FontAwesome.otf" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\assets\less\accordions.less" />
+    <Content Include="public\assets\less\blockquotes.less" />
+    <Content Include="public\assets\less\blog.less" />
+    <Content Include="public\assets\less\bootstrap.less" />
+    <Content Include="public\assets\less\bootstrap\alerts.less" />
+    <Content Include="public\assets\less\bootstrap\badges.less" />
+    <Content Include="public\assets\less\bootstrap\bootstrap.less" />
+    <Content Include="public\assets\less\bootstrap\breadcrumbs.less" />
+    <Content Include="public\assets\less\bootstrap\button-groups.less" />
+    <Content Include="public\assets\less\bootstrap\buttons.less" />
+    <Content Include="public\assets\less\bootstrap\carousel.less" />
+    <Content Include="public\assets\less\bootstrap\close.less" />
+    <Content Include="public\assets\less\bootstrap\code.less" />
+    <Content Include="public\assets\less\bootstrap\component-animations.less" />
+    <Content Include="public\assets\less\bootstrap\dropdowns.less" />
+    <Content Include="public\assets\less\bootstrap\forms.less" />
+    <Content Include="public\assets\less\bootstrap\glyphicons.less" />
+    <Content Include="public\assets\less\bootstrap\grid.less" />
+    <Content Include="public\assets\less\bootstrap\input-groups.less" />
+    <Content Include="public\assets\less\bootstrap\jumbotron.less" />
+    <Content Include="public\assets\less\bootstrap\labels.less" />
+    <Content Include="public\assets\less\bootstrap\list-group.less" />
+    <Content Include="public\assets\less\bootstrap\media.less" />
+    <Content Include="public\assets\less\bootstrap\mixins.less" />
+    <Content Include="public\assets\less\bootstrap\modals.less" />
+    <Content Include="public\assets\less\bootstrap\navbar.less" />
+    <Content Include="public\assets\less\bootstrap\navs.less" />
+    <Content Include="public\assets\less\bootstrap\normalize.less" />
+    <Content Include="public\assets\less\bootstrap\pager.less" />
+    <Content Include="public\assets\less\bootstrap\pagination.less" />
+    <Content Include="public\assets\less\bootstrap\panels.less" />
+    <Content Include="public\assets\less\bootstrap\popovers.less" />
+    <Content Include="public\assets\less\bootstrap\print.less" />
+    <Content Include="public\assets\less\bootstrap\progress-bars.less" />
+    <Content Include="public\assets\less\bootstrap\responsive-utilities.less" />
+    <Content Include="public\assets\less\bootstrap\scaffolding.less" />
+    <Content Include="public\assets\less\bootstrap\tables.less" />
+    <Content Include="public\assets\less\bootstrap\theme.less" />
+    <Content Include="public\assets\less\bootstrap\thumbnails.less" />
+    <Content Include="public\assets\less\bootstrap\tooltip.less" />
+    <Content Include="public\assets\less\bootstrap\type.less" />
+    <Content Include="public\assets\less\bootstrap\utilities.less" />
+    <Content Include="public\assets\less\bootstrap\wells.less" />
+    <Content Include="public\assets\less\carousels.less" />
+    <Content Include="public\assets\less\font-awesome.less" />
+    <Content Include="public\assets\less\glyphicons.less" />
+    <Content Include="public\assets\less\hornav.less" />
+    <Content Include="public\assets\less\mixins.less" />
+    <Content Include="public\assets\less\nexus.less" />
+    <Content Include="public\assets\less\pages.less" />
+    <Content Include="public\assets\less\panels.less" />
+    <Content Include="public\assets\less\portfolio.less" />
+    <Content Include="public\assets\less\progress-bars.less" />
+    <Content Include="public\assets\less\responsive-nav.less" />
+    <Content Include="public\assets\less\sidebar-menu.less" />
+    <Content Include="public\assets\less\social-icons.less" />
+    <Content Include="public\assets\less\tabs.less" />
+    <Content Include="public\assets\less\template.less" />
+    <Content Include="public\assets\less\testimonials.less" />
+    <Content Include="public\assets\less\thumbs-gallery.less" />
+    <Content Include="public\assets\less\typo.less" />
+    <Content Include="public\assets\less\utility-classes.less" />
+    <Content Include="public\assets\less\variables.less" />
+    <Content Include="public\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="public\Scripts\jquery-3.4.1.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceAuthor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public\assets\img\artworks\19\original\" />
+    <Folder Include="public\assets\img\artworks\20\original\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50421</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44358/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

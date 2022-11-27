@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListAuthors">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListAuthorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListAuthorsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Agregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="authorid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarEncrypt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="authorid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarEncryptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarEncryptResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilitarContenidoR34">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilitarContenidoR34Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HabilitarContenidoR34Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeguirArtista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDArtistaSeguir" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeguirArtistaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeguirArtistaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstaSiguiendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDArtista" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstaSiguiendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EstaSiguiendoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Siguiendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SiguiendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiguiendoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginInResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginInEncrypt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passw" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginInEncryptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginInEncryptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComisionesAbiertas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ComisionesAbiertasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComisionesAbiertasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestsAbiertas">
+        <s:complexType />
+      </s:element>
+      <s:element name="RequestsAbiertasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestsAbiertasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserTrustLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserTrustLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserTrustLevelResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPerfil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="opcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPerfilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarPerfilResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbrirRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbrirRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AbrirRequestsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorFacturationAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="author_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fact_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fact_postal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fact_country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="balance" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_numb" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorFacturationAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthorFacturationAddResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FactInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FactStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FacturationBalanceResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationCommisionOpens">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationCommisionOpensResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FacturationCommisionOpensResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationInfoUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturationInfoUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FacturationInfoUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListAuthorsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListAuthors" />
+  </wsdl:message>
+  <wsdl:message name="ListAuthorsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListAuthorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarSoapIn">
+    <wsdl:part name="parameters" element="tns:Agregar" />
+  </wsdl:message>
+  <wsdl:message name="AgregarSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarEncryptSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarEncrypt" />
+  </wsdl:message>
+  <wsdl:message name="AgregarEncryptSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarEncryptResponse" />
+  </wsdl:message>
+  <wsdl:message name="HabilitarContenidoR34SoapIn">
+    <wsdl:part name="parameters" element="tns:HabilitarContenidoR34" />
+  </wsdl:message>
+  <wsdl:message name="HabilitarContenidoR34SoapOut">
+    <wsdl:part name="parameters" element="tns:HabilitarContenidoR34Response" />
+  </wsdl:message>
+  <wsdl:message name="SeguirArtistaSoapIn">
+    <wsdl:part name="parameters" element="tns:SeguirArtista" />
+  </wsdl:message>
+  <wsdl:message name="SeguirArtistaSoapOut">
+    <wsdl:part name="parameters" element="tns:SeguirArtistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstaSiguiendoSoapIn">
+    <wsdl:part name="parameters" element="tns:EstaSiguiendo" />
+  </wsdl:message>
+  <wsdl:message name="EstaSiguiendoSoapOut">
+    <wsdl:part name="parameters" element="tns:EstaSiguiendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SiguiendoSoapIn">
+    <wsdl:part name="parameters" element="tns:Siguiendo" />
+  </wsdl:message>
+  <wsdl:message name="SiguiendoSoapOut">
+    <wsdl:part name="parameters" element="tns:SiguiendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginInSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginIn" />
+  </wsdl:message>
+  <wsdl:message name="LoginInSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginInResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginInEncryptSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginInEncrypt" />
+  </wsdl:message>
+  <wsdl:message name="LoginInEncryptSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginInEncryptResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesAbiertasSoapIn">
+    <wsdl:part name="parameters" element="tns:ComisionesAbiertas" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesAbiertasSoapOut">
+    <wsdl:part name="parameters" element="tns:ComisionesAbiertasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestsAbiertasSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestsAbiertas" />
+  </wsdl:message>
+  <wsdl:message name="RequestsAbiertasSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestsAbiertasResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserTrustLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:UserTrustLevel" />
+  </wsdl:message>
+  <wsdl:message name="UserTrustLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:UserTrustLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPerfilSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPerfil" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPerfilSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbrirRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:AbrirRequests" />
+  </wsdl:message>
+  <wsdl:message name="AbrirRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:AbrirRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthorFacturationAddSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthorFacturationAdd" />
+  </wsdl:message>
+  <wsdl:message name="AuthorFacturationAddSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthorFacturationAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="FactInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:FactInfo" />
+  </wsdl:message>
+  <wsdl:message name="FactInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:FactInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FactStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:FactStatus" />
+  </wsdl:message>
+  <wsdl:message name="FactStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:FactStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturationBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:FacturationBalance" />
+  </wsdl:message>
+  <wsdl:message name="FacturationBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:FacturationBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturationCommisionOpensSoapIn">
+    <wsdl:part name="parameters" element="tns:FacturationCommisionOpens" />
+  </wsdl:message>
+  <wsdl:message name="FacturationCommisionOpensSoapOut">
+    <wsdl:part name="parameters" element="tns:FacturationCommisionOpensResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturationInfoUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:FacturationInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="FacturationInfoUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:FacturationInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsAuthorSoap">
+    <wsdl:operation name="ListAuthors">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Listar los artistas</wsdl:documentation>
+      <wsdl:input message="tns:ListAuthorsSoapIn" />
+      <wsdl:output message="tns:ListAuthorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Agregar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Registrar un nuevo artista</wsdl:documentation>
+      <wsdl:input message="tns:AgregarSoapIn" />
+      <wsdl:output message="tns:AgregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncrypt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Registrar un nuevo artista con encrypt</wsdl:documentation>
+      <wsdl:input message="tns:AgregarEncryptSoapIn" />
+      <wsdl:output message="tns:AgregarEncryptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarContenidoR34">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Activar contenido sensible</wsdl:documentation>
+      <wsdl:input message="tns:HabilitarContenidoR34SoapIn" />
+      <wsdl:output message="tns:HabilitarContenidoR34SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeguirArtista">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seguir a un Artista - Se puede volver a llamar para hacer la accion contraria</wsdl:documentation>
+      <wsdl:input message="tns:SeguirArtistaSoapIn" />
+      <wsdl:output message="tns:SeguirArtistaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstaSiguiendo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Respuesta si se Sigue a un artista</wsdl:documentation>
+      <wsdl:input message="tns:EstaSiguiendoSoapIn" />
+      <wsdl:output message="tns:EstaSiguiendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Siguiendo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lista de artistas que sigues</wsdl:documentation>
+      <wsdl:input message="tns:SiguiendoSoapIn" />
+      <wsdl:output message="tns:SiguiendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login Function</wsdl:documentation>
+      <wsdl:input message="tns:LoginInSoapIn" />
+      <wsdl:output message="tns:LoginInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginInEncrypt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login Function con Encrypt</wsdl:documentation>
+      <wsdl:input message="tns:LoginInEncryptSoapIn" />
+      <wsdl:output message="tns:LoginInEncryptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesAbiertas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Comisiones abiertas</wsdl:documentation>
+      <wsdl:input message="tns:ComisionesAbiertasSoapIn" />
+      <wsdl:output message="tns:ComisionesAbiertasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestsAbiertas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Requests abiertas</wsdl:documentation>
+      <wsdl:input message="tns:RequestsAbiertasSoapIn" />
+      <wsdl:output message="tns:RequestsAbiertasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserTrustLevel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el trust level de un usuario</wsdl:documentation>
+      <wsdl:input message="tns:UserTrustLevelSoapIn" />
+      <wsdl:output message="tns:UserTrustLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPerfil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar informacion de perfil</wsdl:documentation>
+      <wsdl:input message="tns:ActualizarPerfilSoapIn" />
+      <wsdl:output message="tns:ActualizarPerfilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AbrirRequests">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar el estado de requests del usuario - UserSettings</wsdl:documentation>
+      <wsdl:input message="tns:AbrirRequestsSoapIn" />
+      <wsdl:output message="tns:AbrirRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthorFacturationAdd">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Agregar informacion de facturacion - UserSettings</wsdl:documentation>
+      <wsdl:input message="tns:AuthorFacturationAddSoapIn" />
+      <wsdl:output message="tns:AuthorFacturationAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener informacion de facturacion del usuario - UserSettings</wsdl:documentation>
+      <wsdl:input message="tns:FactInfoSoapIn" />
+      <wsdl:output message="tns:FactInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Estado de facturacion - UserSettings</wsdl:documentation>
+      <wsdl:input message="tns:FactStatusSoapIn" />
+      <wsdl:output message="tns:FactStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacturationBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Estado de balance de cuenta - UserSettings | Dashboard</wsdl:documentation>
+      <wsdl:input message="tns:FacturationBalanceSoapIn" />
+      <wsdl:output message="tns:FacturationBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacturationCommisionOpens">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cambiar disponibilidad de aceptacion de comisiones - UserSettings | Dashboard</wsdl:documentation>
+      <wsdl:input message="tns:FacturationCommisionOpensSoapIn" />
+      <wsdl:output message="tns:FacturationCommisionOpensSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacturationInfoUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar info de facturacion - UserSettings</wsdl:documentation>
+      <wsdl:input message="tns:FacturationInfoUpdateSoapIn" />
+      <wsdl:output message="tns:FacturationInfoUpdateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsAuthorSoap" type="tns:wsAuthorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListAuthors">
+      <soap:operation soapAction="http://tempuri.org/ListAuthors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agregar">
+      <soap:operation soapAction="http://tempuri.org/Agregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncrypt">
+      <soap:operation soapAction="http://tempuri.org/AgregarEncrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarContenidoR34">
+      <soap:operation soapAction="http://tempuri.org/HabilitarContenidoR34" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeguirArtista">
+      <soap:operation soapAction="http://tempuri.org/SeguirArtista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstaSiguiendo">
+      <soap:operation soapAction="http://tempuri.org/EstaSiguiendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Siguiendo">
+      <soap:operation soapAction="http://tempuri.org/Siguiendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginIn">
+      <soap:operation soapAction="http://tempuri.org/LoginIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginInEncrypt">
+      <soap:operation soapAction="http://tempuri.org/LoginInEncrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesAbiertas">
+      <soap:operation soapAction="http://tempuri.org/ComisionesAbiertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestsAbiertas">
+      <soap:operation soapAction="http://tempuri.org/RequestsAbiertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserTrustLevel">
+      <soap:operation soapAction="http://tempuri.org/UserTrustLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPerfil">
+      <soap:operation soapAction="http://tempuri.org/ActualizarPerfil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbrirRequests">
+      <soap:operation soapAction="http://tempuri.org/AbrirRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorFacturationAdd">
+      <soap:operation soapAction="http://tempuri.org/AuthorFacturationAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactInfo">
+      <soap:operation soapAction="http://tempuri.org/FactInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactStatus">
+      <soap:operation soapAction="http://tempuri.org/FactStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationBalance">
+      <soap:operation soapAction="http://tempuri.org/FacturationBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationCommisionOpens">
+      <soap:operation soapAction="http://tempuri.org/FacturationCommisionOpens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationInfoUpdate">
+      <soap:operation soapAction="http://tempuri.org/FacturationInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAuthorSoap12" type="tns:wsAuthorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListAuthors">
+      <soap12:operation soapAction="http://tempuri.org/ListAuthors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agregar">
+      <soap12:operation soapAction="http://tempuri.org/Agregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEncrypt">
+      <soap12:operation soapAction="http://tempuri.org/AgregarEncrypt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarContenidoR34">
+      <soap12:operation soapAction="http://tempuri.org/HabilitarContenidoR34" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeguirArtista">
+      <soap12:operation soapAction="http://tempuri.org/SeguirArtista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstaSiguiendo">
+      <soap12:operation soapAction="http://tempuri.org/EstaSiguiendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Siguiendo">
+      <soap12:operation soapAction="http://tempuri.org/Siguiendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginIn">
+      <soap12:operation soapAction="http://tempuri.org/LoginIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginInEncrypt">
+      <soap12:operation soapAction="http://tempuri.org/LoginInEncrypt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesAbiertas">
+      <soap12:operation soapAction="http://tempuri.org/ComisionesAbiertas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestsAbiertas">
+      <soap12:operation soapAction="http://tempuri.org/RequestsAbiertas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserTrustLevel">
+      <soap12:operation soapAction="http://tempuri.org/UserTrustLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPerfil">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarPerfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbrirRequests">
+      <soap12:operation soapAction="http://tempuri.org/AbrirRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorFacturationAdd">
+      <soap12:operation soapAction="http://tempuri.org/AuthorFacturationAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactInfo">
+      <soap12:operation soapAction="http://tempuri.org/FactInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactStatus">
+      <soap12:operation soapAction="http://tempuri.org/FactStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationBalance">
+      <soap12:operation soapAction="http://tempuri.org/FacturationBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationCommisionOpens">
+      <soap12:operation soapAction="http://tempuri.org/FacturationCommisionOpens" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacturationInfoUpdate">
+      <soap12:operation soapAction="http://tempuri.org/FacturationInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsAuthor">
+    <wsdl:port name="wsAuthorSoap" binding="tns:wsAuthorSoap">
+      <soap:address location="https://localhost:44325/wsAuthor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAuthorSoap12" binding="tns:wsAuthorSoap12">
+      <soap12:address location="https://localhost:44325/wsAuthor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
