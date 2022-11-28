@@ -53,7 +53,7 @@ namespace BussinessLayer
         // Permite pedir una comision a un artista
         public string RequestNewCommission(Commission commission)
         {
-            DataRow dr = capadatos.TraerDataRow("spRequestNewCommission", commission.Author_id, commission.Details, commission.Deliver_date, commission.Status, commission.Commissioner_id);
+            DataRow dr = capadatos.TraerDataRow("spRequestNewCommission", commission.Author_id, commission.Details, commission.Deliver_date, commission.Commissioner_id);
             return dr["Mensaje"].ToString();   
         }
 

@@ -522,7 +522,7 @@ namespace ServiceLayer
             return requestBL.RequestFinish(request_id, illust_id);
         }
 
-        [WebMethod(Description = "Listar las requests hacia el usuario - Requests")]
+        [WebMethod(Description = "Listar las requests pedidas hacia y por el usuario - Requests")]
         public DataTable RequestsList(string codUser, string rec_type = "")
         {
             RequestBL requestBL = new RequestBL();
@@ -687,7 +687,7 @@ namespace ServiceLayer
         }
 
         [WebMethod(Description = "Permite pedir una comision a un artista - AuthorProfile / CommRequest")]
-        public string RequestNewCommission(int author_id, string details, string deliver_date, string status, int commissioner_id)
+        public string RequestNewCommission(int author_id, string details, string deliver_date, int commissioner_id)
         {
             CommissionBL commissionBL = new CommissionBL();
             Commission commission = new Commission
@@ -695,7 +695,7 @@ namespace ServiceLayer
                 Author_id = author_id,
                 Details = details,
                 Deliver_date = deliver_date,
-                Status = status,
+                Status = "a",
                 Commissioner_id = commissioner_id
             };
             return commissionBL.RequestNewCommission(commission);
