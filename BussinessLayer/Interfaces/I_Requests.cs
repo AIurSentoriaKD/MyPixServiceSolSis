@@ -14,13 +14,13 @@ namespace BussinessLayer.Interfaces
             CodUser representa al usuario logeado
          */
         // obtener estado de requests de un autor
-        bool RequestsOpen(int author_id);
+        bool IsRequestOpen(int author_id);
 
         // Obtener Lista de requests hacia el usuario
         DataTable RequestsList(string codUser, string rec_type);
 
         // Pedir request, si requestopen es true
-        bool RequestSolitude(Request request, AuthorRequest authorRequest);
+        bool RequestSolitude(Request request);
 
         // Aceptar request
         bool RequestSolitudeAccept(int request_id);
@@ -33,5 +33,14 @@ namespace BussinessLayer.Interfaces
 
         // Lista de requests aceptadas, para insertarlo con illust
         DataTable AcceptedRequestsList(int codUser);
+
+        // Lista de ilustraciones de requests recientes
+        DataTable RecentRequestIllust();
+
+        // Lista de ilustraciones de requests de artistas seguidos
+        DataTable RecentReqIllustsFollowing(int codUser);
+
+        // Lista de usuarios seguidos con requests abiertas
+        DataTable ReqOpenFollowing(int codUser);
     }
 }

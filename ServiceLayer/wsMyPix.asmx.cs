@@ -9,19 +9,19 @@ using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
 
+
 namespace ServiceLayer
 {
     /// <summary>
-    /// Descripción breve de wsAuthor
+    /// Descripción breve de wsMyPix
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
     // [System.Web.Script.Services.ScriptService]
-    public class wsAuthor : System.Web.Services.WebService
+    public class wsMyPix : System.Web.Services.WebService
     {
-
         #region WEB SERVICE ILLUSTPAGE METHODS
         [WebMethod(Description = "Sumar view a illust - IllustPage")]
         public void SumViewIllust(string illust_id)
@@ -529,7 +529,7 @@ namespace ServiceLayer
             if (rec_type.Equals("FROM"))
                 return requestBL.RequestsList(codUser, "FROM");
             else // SELF
-                return requestBL.RequestsList(codUser);
+                return requestBL.RequestsList(codUser, "SELF");
         }
 
         [WebMethod(Description = "Realizar pedido de Request - AuthorProfile")]
@@ -539,13 +539,10 @@ namespace ServiceLayer
             Request request = new Request
             {
                 Author_id = authorid,
+                Requester_id = requester_id,
                 Requester_comment = requester_comment
             };
-            AuthorRequest authorRequest = new AuthorRequest
-            {
-                Requester_id = requester_id
-            };
-            return requestBL.RequestSolitude(request, authorRequest);
+            return requestBL.RequestSolitude(request);
         }
 
         [WebMethod(Description = "Aceptar Request - Requests")]
@@ -566,7 +563,26 @@ namespace ServiceLayer
         public bool RequestsOpen(int author_id)
         {
             RequestBL requestBL = new RequestBL();
-            return requestBL.RequestsOpen(author_id);
+            return requestBL.IsRequestOpen(author_id);
+        }
+
+        [WebMethod(Description = "Lista de ilustraciones de requests recientes - Dashboard/request")]
+        public DataTable RecentRequestIllust()
+        {
+            RequestBL request = new RequestBL();
+            return request.RecentRequestIllust();
+        }
+        [WebMethod(Description = "Lista de ilustraciones de requests de artistas seguidos - Dashboard/request")]
+        public DataTable RecentReqIllustsFollowing(int codUser)
+        {
+            RequestBL request = new RequestBL();
+            return request.RecentReqIllustsFollowing(codUser);
+        }
+        [WebMethod(Description = "Lista de usuarios seguidos que tienen requests abiertas - Dashboard/request")]
+        public DataTable ReqOpenFollowing(int codUser)
+        {
+            RequestBL request = new RequestBL();
+            return request.ReqOpenFollowing(codUser);
         }
         #endregion
 

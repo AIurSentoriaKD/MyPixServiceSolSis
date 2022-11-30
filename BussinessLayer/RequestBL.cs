@@ -34,7 +34,7 @@ namespace BussinessLayer
             else return false;
         }
         // Obtener Lista de requests
-        public DataTable RequestsList(string codUser, string rec_type = "SELF")
+        public DataTable RequestsList(string codUser, string rec_type)
         {
             // rec_type : SELF || FROM
             //      SELF hacia el usuario
@@ -42,11 +42,11 @@ namespace BussinessLayer
             return capadatos.TraerDataTable("spRequestsList", codUser, rec_type);
         }
         // Pedir request, si requestopen es true
-        public bool RequestSolitude(Request request, AuthorRequest authorRequest)
+        public bool RequestSolitude(Request request)
         {
-            if (RequestsOpen(request.Author_id))
+            if (IsRequestOpen(request.Author_id))
             {
-                DataRow dr = capadatos.TraerDataRow("spRequestSolitude", authorRequest.Requester_id, request.Author_id, request.Requester_comment);
+                DataRow dr = capadatos.TraerDataRow("spRequestSolitude",request.Author_id,request.Requester_id,request.Requester_comment);
                 if (dr["CodError"].Equals("0"))
                     return true;
                 else return false;
@@ -70,17 +70,34 @@ namespace BussinessLayer
             else return false;
         }
         // obtener estado de requests de un autor
-        public bool RequestsOpen(int author_id)
+        public bool IsRequestOpen(int author_id)
         {
             DataRow dr = capadatos.TraerDataRow("spRequestsOpen", author_id);
             if (dr["CodError"].Equals("0"))
             {
+                // 0 cerrado 1 open
                 if (dr["CurrentRequest"].Equals("0"))
                     return false;
                 else 
                     return true;
             }
             else return false;
+        }
+
+        public DataTable RecentRequestIllust()
+        {
+            DataTable dt = capadatos.TraerDataTable("spRecentRequestIllust");
+            return dt;
+        }
+        public DataTable RecentReqIllustsFollowing(int codUser)
+        {
+            DataTable dt = capadatos.TraerDataTable("spRecentReqIllustsFollowing", codUser);
+            return dt;
+        }
+        public DataTable ReqOpenFollowing(int codUser)
+        {
+            DataTable dt = capadatos.TraerDataTable("spReqOpenFollowing", codUser);
+            return dt;
         }
     }
 }
